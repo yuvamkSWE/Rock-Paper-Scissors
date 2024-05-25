@@ -7,8 +7,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 // If null/undefined then it will return the secound part.
 // When reset first part is null
 
-
-document.querySelector('.js-score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+updateScoreElement();
 
 
 
@@ -64,10 +63,17 @@ document.querySelector('.js-score').innerHTML = `Wins: ${score.wins} Losses: ${s
     }
 
     localStorage.setItem('score', JSON.stringify(score));
+    // Updates score continously
+    updateScoreElement();
 
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
   }
+
+function updateScoreElement(){
+  document.querySelector('.js-score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+}
+
 
   function pickComputerMove() {
     const randomNumber = Math.random();
