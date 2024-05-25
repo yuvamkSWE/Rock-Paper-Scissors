@@ -4,6 +4,14 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
   };
 
+// If null/undefined then it will return the secound part.
+// When reset first part is null
+
+
+document.querySelector('.js-score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+
+
+
   /*
   if (!score) {
     score = {
