@@ -50,15 +50,15 @@ updateScoreElement();
       } else if (computerMove === 'paper') {
         result = 'You lose.';
       } else if (computerMove === 'scissors') {
-        result = 'You win.';
+        result = 'You win';
       }
     }
 
     if (result === 'You win.') {
       score.wins += 1;
-    } else if (result === 'You lose.') {
+    } else if (result === 'You lose') {
       score.losses += 1;
-    } else if (result === 'Tie.') {
+    } else if (result === 'Tie') {
       score.ties += 1;
     }
 
@@ -66,13 +66,20 @@ updateScoreElement();
     // Updates score continously
     updateScoreElement();
 
-    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+    document.querySelector('.js-result').innerHTML = `${result}`
+    
+
+    document.querySelector('.js-moves').innerHTML = `You
+<img src="images/${playerMove}-emoji.png" class="move-icon">
+<img src="images/${computerMove}-emoji.png" class="move-icon">
+Computer`;
   }
 
 function updateScoreElement(){
   document.querySelector('.js-score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
 }
+
+
 
 
   function pickComputerMove() {

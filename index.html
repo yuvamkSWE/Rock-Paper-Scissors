@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Rock Paper Scissors</p>
-    <button onclick="playGame('rock');">Rock</button>
+  <main>
 
-    <button onclick="playGame('paper');">Paper</button>
+    <p class="game-title">Rock Paper Scissors</p>
+    <button onclick="playGame('rock');" class="hand-img"><img src="images/rock-emoji.png" alt="Rock"></button>
 
-    <button onclick="playGame('scissors');">Scissors</button>
+    <button onclick="playGame('paper');" class="hand-img"><img src="images/paper-emoji.png" alt="Paper"></button>
 
-    <p class="js-score"></p>
+    <button onclick="playGame('scissors');" class="hand-img"><img src="images/scissors-emoji.png" alt="ScissorsS"></button>
 
-    <button onclick="
+    <p class="js-result result" style="margin-bottom: 10px;"></p>
+    <p class="js-moves moves"></p>
+    <p class="js-score score"></p>
+
+    <button class="reset-btn"
+     onclick="
       score.wins = 0;
       score.losses = 0;
       score.ties = 0;
-      localStorage.removeItem('score');">Reset Score</button>
+      localStorage.removeItem('score');
+      updateScoreElement();
+      ">Reset Score</button>
 
-    
+  </main>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
